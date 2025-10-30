@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meta Retrait - Connexion</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="centered-card">
+    <div class="card">
+      <h1>Meta Retrait</h1>
+      <p class="muted">Accédez à votre compte de retrait </p>
+
+      <form id="loginForm">
+        <label>Identifiant</label>
+        <input id="username" required placeholder="ex : client@example.com" type="email" />
+        <label>Mot de passe</label>
+        <input id="password" required placeholder="Mot de passe" type="password" />
+        <button type="submit" class="btn primary">Se connecter</button>
+      </form>
+
+      <p class="small muted">
+        Utilisez les identifiants qui vous ont été envoyés par mail
+      </p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Demo login handler (client-side demo only)
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value.trim();
+
+      // demo credentials
+      if (u === 'demo@agro' && p === 'demo') {
+        // sample client data (would come from server in prod)
+        const client = {
+          id: 'C-0001',
+          nom: 'BOESCHLIN',
+          prenom: 'ALAIN',
+          adresse: '68320 Jebsheim France',
+          date_debut: '2022-01-10',
+          date_fin: '2025-09-26',
+          montant_total_investi_btc: 80000,   // EUR
+          montant_actuel_btc: 7.25,         // BTC (solde = montant actuel)
+        };
+        localStorage.setItem('agro_client_demo', JSON.stringify(client));
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Identifiants incorrects !');
+      }
+    });
+  </script>
+</body>
+</html>

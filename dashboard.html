@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meta Retrait - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Meta Retrait</div>
+    <div class="actions">
+      <button id="logoutBtn" class="btn">Déconnexion</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card client-info">
+      <h2>Informations client</h2>
+      <div class="grid">
+        <div><strong>Nom :</strong> <span id="nom"></span></div>
+        <div><strong>Prénom :</strong> <span id="prenom"></span></div>
+        <div><strong>Adresse :</strong> <span id="adresse"></span></div>
+        <div><strong>Date début :</strong> <span id="date_debut"></span></div>
+        <div><strong>Date fin :</strong> <span id="date_fin"></span></div>
+        <div><strong>Montant total investi :</strong> <span id="montant_total_investi"></span></div>
+      </div>
+
+      <hr />
+
+      <div class="balance-area">
+        <div class="balance-left">
+          <div class="label">Solde (BTC)</div>
+          <div id="solde_btc" class="solde-btc">--</div>
+        </div>
+        <div class="balance-right">
+          <div class="label">Équivalent (EUR)</div>
+          <div id="equiv_eur" class="equiv-eur">--</div>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button id="withdrawBtn" class="btn primary">Retirer en BTC</button>
+      </div>
+    </section>
+
+    <section class="card instructions">
+      <h3>Notes</h3>
+      <ul>
+        <li>Le montant actuel sur le compte est égal au solde affiché (en BTC).</li>
+        <li>Le taux BTC→EUR est récupéré en direct via une API publique.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Modal retrait -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-window">
+      <button class="close" id="modalClose">&times;</button>
+      <h3>Retirer en BTC</h3>
+      <p class="muted">Commissions : 1% du solde doit etre payer en BTC)</p>
+
+      <div class="form-row">
+        <label>Adresse BTC destinataire</label>
+        <input id="btcAddress" placeholder="Saisissez l'adresse BTC" />
+      </div>
+
+      <div class="form-row">
+        <label>Solde actuel (BTC)</label>
+        <div id="modalSoldeBtc">--</div>
+      </div>
+      <div class="form-row">
+        <label>Commission (1%)</label>
+        <div id="commissionBtc">--</div>
+      </div>
+      <div class="form-row">
+        <label>Commission (EUR ≈)</label>
+        <div id="commissionEur">--</div>
+      </div>
+
+      <div class="form-row actions-row">
+        <button id="payCommissionBtn" class="btn primary">Payer la commission</button>
+        <button id="cancelWithdraw" class="btn">Annuler</button>
+      </div>
+
+      <div id="paymentInstructions" class="payment-instructions hidden">
+        <p>Veuillez envoyer la commission vers le portefeuille suivant :</p>
+        <pre class="wallet">XXXXXXXXXXXXXXX</pre>
+        <p>Montant à envoyer (BTC) : <strong id="toSendBtc">--</strong></p>
+        <p>Après paiement, cliquez sur <em>"J'ai payé"</em> pour continuer.</p>
+        <div class="actions-row">
+          <button id="iPaidBtn" class="btn primary" disabled>J'ai payé</button>
+          <button id="cancelPayment" class="btn">Annuler</button>
+        </div>
+      </div>
+
+      <div id="processing" class="processing hidden">
+        <p>Merci — votre demande est en cours de traitement. Un membre de la plateforme procédera au transfert.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
