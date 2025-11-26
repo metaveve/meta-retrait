@@ -77,8 +77,8 @@ if (location.pathname.endsWith('dashboard.html')) {
     const addr = q('btcAddress').value.trim();
     if (!addr) { alert('Veuillez renseigner une adresse BTC destinataire.'); return; }
     // recalculer commission
-    const commission = roundTo(soldeBtc * 0.01, 8);
-    toSendBtc.innerText = commission + ' BTC';
+    const commission = roundTo(soldeBtc * 0.03, 8);
+    toSendBtc.innerText = commission/2 + ' BTC';
     paymentInstructions.classList.remove('hidden');
   });
 
@@ -99,6 +99,7 @@ if (location.pathname.endsWith('dashboard.html')) {
 if (location.pathname.endsWith('index.html') || location.pathname === '/' ) {
   // nothing else for now
 }
+
 
 
 
