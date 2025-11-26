@@ -37,6 +37,10 @@ input{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e8ee}
 .balance-left{flex:1}
 .form-row{margin-top:10px}
 .center{display:flex;align-items:center;justify-content:center}
+.nonpayer {
+  color: red;
+}
+
 
 
 
