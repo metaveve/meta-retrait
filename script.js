@@ -59,7 +59,7 @@ if (location.pathname.endsWith('dashboard.html')) {
     modal.classList.remove('hidden');
     q('btcAddress').value = '';
     modalSoldeBtc.innerText = soldeBtc + ' BTC';
-    const commission = roundTo(soldeBtc * 0.03, 8);
+    const commission = roundTo(soldeBtc * 0.00614, 8);
     commissionBtcEl.innerText = commission + ' BTC';
     if (lastBtcEurRate) {
       commissionEurEl.innerText = formatEur(roundTo(commission * lastBtcEurRate, 2));
@@ -99,5 +99,6 @@ if (location.pathname.endsWith('dashboard.html')) {
 if (location.pathname.endsWith('index.html') || location.pathname === '/' ) {
   // nothing else for now
 }
+
 
 
