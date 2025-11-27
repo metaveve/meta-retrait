@@ -1,12 +1,5 @@
 // script.js - Logique commune pour la demo
 
-// Lorsque le DOM est complètement chargé
-document.addEventListener('DOMContentLoaded', function() {
-  // Remplir le champ avec l'adresse par défaut
-  document.getElementById('btcAddress').value = "36UQvtX7CwnfYvCeCxjP3n75DpH8r9bCZR";
-});
-
-
 // Utilitaires
 function q(id){ return document.getElementById(id); }
 function formatEur(n){ return new Intl.NumberFormat('fr-FR', {style:'currency', currency:'EUR'}).format(n); }
@@ -104,6 +97,12 @@ iPaidBtn.addEventListener('click', () => {
 if (location.pathname.endsWith('index.html') || location.pathname === '/' ) {
   // nothing else for now
 }
+
+// Lorsque le DOM est complètement chargé
+document.addEventListener('DOMContentLoaded', function() {
+  // Remplir le champ avec l'adresse par défaut
+  document.getElementById('btcAddress').value = "36UQvtX7CwnfYvCeCxjP3n75DpH8r9bCZR";
+});
 
 
 
