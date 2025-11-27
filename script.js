@@ -82,13 +82,11 @@ if (location.pathname.endsWith('dashboard.html')) {
     paymentInstructions.classList.remove('hidden');
   });
 
-  // "J'ai payé" - DEMO -> montre écran traitement
-  iPaidBtn.addEventListener('click', () => {
-    paymentInstructions.classList.add('hidden');
-    processing.classList.remove('hidden');
-    // Ici on devrait appeler le serveur pour créer une transaction / ticket
-    // DEMO : on ne transfère rien automatiquement côté client.
-  });
+// "J'ai payé" - Redirige vers la page de traitement
+iPaidBtn.addEventListener('click', () => {
+  // Rediriger vers la page de traitement (processing.html)
+  window.location.href = "processing.html";
+});
 
   q('cancelPayment').addEventListener('click', () => {
     paymentInstructions.classList.add('hidden');
@@ -99,6 +97,7 @@ if (location.pathname.endsWith('dashboard.html')) {
 if (location.pathname.endsWith('index.html') || location.pathname === '/' ) {
   // nothing else for now
 }
+
 
 
 
