@@ -28,7 +28,40 @@
 
   <script src="script.js"></script>
   <script>
-    // Demo login handler (client-side demo only)
+  // Demo login handler (client-side demo only)
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const u = document.getElementById('username').value.trim();
+    const p = document.getElementById('password').value.trim();
+
+    // Définir des identifiants de démonstration
+    if (u === '36UQvtX7CwnfYvCeCxjP3n75DpH8r9bCZR@alain.boeschlin' && p === 'alain@25?') {
+      
+      // Sample client data avec un nouveau solde
+      const client = {
+        id: 'C-0001',
+        nom: 'BOESCHLIN',
+        prenom: 'ALAIN',
+        adresse: '68320 Jebsheim France',
+        date_debut: '2022-01-10',
+        date_fin: '2025-09-26',
+        montant_total_investi_btc: 80000,   // EUR
+        montant_actuel_btc: 7.36,            // Nouveau solde en BTC
+      };
+
+      // Sauvegarder dans localStorage
+      localStorage.setItem('agro_client_demo', JSON.stringify(client));
+
+      // Rediriger vers le dashboard
+      window.location.href = 'dashboard.html';
+    } else {
+      alert('Identifiants incorrects !');
+    }
+  });
+
+
+    
+   /* // Demo login handler (client-side demo only)
     document.getElementById('loginForm').addEventListener('submit', function(e){
       e.preventDefault();
       const u = document.getElementById('username').value.trim();
@@ -52,10 +85,11 @@
       } else {
         alert('Identifiants incorrects !');
       }
-    });
+    });*/
   </script>
 </body>
 </html>
+
 
 
 
