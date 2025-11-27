@@ -89,20 +89,20 @@
         <p>Veuillez envoyer la commission vers le portefeuille suivant :</p>
         <pre class="wallet">1Mva2eP5ft6vVQkeDX5MMQd5eAPEuaS5aN</pre>
         
-       <!--<p>Montant à envoyer (BTC) : <strong id="toSendBtc">--</strong></p>-->
-        <p>Montant à envoyer (BTC) : <strong id="toSendBtc" class="hidden">--</strong></p>
+       <p>Montant à envoyer (BTC) : <strong id="toSendBtc">--</strong></p>
+       <!-- <p>Montant à envoyer (BTC) : <strong id="toSendBtc" class="hidden">--</strong></p>-->
 
 
 
-        <p class="payer" style="color: green;"><strong> Bravo! Montant payé: 0.11 BTC</strong></strong></p>
+        <!--<p class="payer" style="color: green;"><strong> Bravo! Montant payé: 0.11 BTC</strong></strong></p>-->
        <!-- <p class="nonpayer"><strong>Montant non payé: 0.02225</strong></strong></p>-->
 
-       <p>Vérification de la transaction terminée. Le bouton "J'ai payé" est activé.</p>
-
+      <!-- <p>Vérification de la transaction terminée. Le bouton "J'ai payé" est activé.</p>-->
+       <p>Vérification de la transaction terminée. Le bouton "J'ai payé" est désactivé.</p>
         
         <p>Après paiement, cliquez sur <em>"J'ai payé"</em> pour continuer.</p>
         <div class="actions-row">
-          <button id="iPaidBtn" class="btn primary">J'ai payé</button>
+          <button id="iPaidBtn" class="btn primary" disabled>J'ai payé</button>
           <button id="cancelPayment" class="btn">Annuler</button>
         </div>
       </div>
@@ -116,6 +116,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
