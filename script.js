@@ -105,6 +105,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Info icon -> toggler message explicatif
+const infoIcon = document.getElementById("infoIcon");
+const infoBox = document.getElementById("infoBox");
+
+if (infoIcon) {
+  infoIcon.addEventListener("click", () => {
+    infoBox.classList.toggle("hidden");
+  });
+}
+
 
 
 
