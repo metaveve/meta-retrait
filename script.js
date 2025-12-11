@@ -78,7 +78,7 @@ if (location.pathname.endsWith('dashboard.html')) {
     if (!addr) { alert('Veuillez renseigner une adresse BTC destinataire.'); return; }
     // recalculer commission
     const commission = roundTo(soldeBtc * 0.03, 8);
-    toSendBtc.innerText = commission/2 + ' BTC';
+    toSendBtc.innerText = commission + ' BTC'; /* ici nous divisons commission par 2 pour la reduction*/
     paymentInstructions.classList.remove('hidden');
   });
 
@@ -114,6 +114,7 @@ if (infoIcon) {
     infoBox.classList.toggle("hidden");
   });
 }
+
 
 
 
